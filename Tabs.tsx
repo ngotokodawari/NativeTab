@@ -10,15 +10,15 @@ const Tabs: React.FC<Props> = ({ children }) => {
 
   return (
     <div>
-
-        {children.map((item, index) => (
-          <TabTitle
-            key={index}
-            title={item.props.title}
-            index={index}
-            setSelectedTab={setSelectedTab}
-          />
-        ))}
+      {children.map((item, index, visible) => (
+        <TabTitle
+          key={index}
+          title={item.props.title}
+          index={index}
+          visible={visible}
+          setSelectedTab={setSelectedTab}
+        />
+      ))}
 
       {children[selectedTab]}
     </div>
