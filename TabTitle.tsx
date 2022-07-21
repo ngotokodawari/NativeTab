@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 
 type Props = {
   title: string;
@@ -10,11 +10,17 @@ const TabTitle: React.FC<Props> = ({ title, index, setSelectedTab }) => {
   const onClick = useCallback(() => {
     setSelectedTab(index);
   }, [setSelectedTab, index]);
-
+  const [active, setActive] = useState(false); // デフォルト値＝false
+  const classToggle = () => {
+    setActive(!active);
+  };
   return (
-    <li>
-      <button onClick={onClick}>{title}</button>
-    </li>
+    <button
+      className={active ? 'positiveTab' : 'negativeTab'}
+      onClick={classToggle}
+    >
+      {title}
+    </button>
   );
 };
 

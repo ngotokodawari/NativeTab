@@ -10,7 +10,7 @@ const Tabs: React.FC<Props> = ({ children }) => {
 
   return (
     <div>
-      <ul>
+
         {children.map((item, index) => (
           <TabTitle
             key={index}
@@ -19,7 +19,7 @@ const Tabs: React.FC<Props> = ({ children }) => {
             setSelectedTab={setSelectedTab}
           />
         ))}
-      </ul>
+
       {children[selectedTab]}
     </div>
   );
