@@ -5,7 +5,7 @@ import './style.css';
 // 参考URL　https://ics.media/entry/17109/
 export default function App(props) {
   // クリックしたタブのIDを保持する
-  const [state, setState] = useState({ tab: 'panel1' }); // デフォルト値
+  const [state, setState] = useState({ tabNumber: '0' }); // デフォルト値
   // クリックしたときのイベントハンドラーです。
   const handleClick = (event) => {
     // イベント発生源の要素を取得
@@ -16,7 +16,7 @@ export default function App(props) {
 
     // プロパティーを更新
     setState({
-      tab: tabState,
+      tabNumber: tabState,
     });
   };
   return (
@@ -24,8 +24,8 @@ export default function App(props) {
       <ul role="tablist">
         <button
           role="tab"
-          aria-controls="panel1"
-          aria-selected={state.tab === 'panel1'}
+          aria-controls="1"
+          aria-selected={state.tabNumber === '1'}
           onClick={handleClick}
         >
           A画面
@@ -33,8 +33,8 @@ export default function App(props) {
 
         <button
           role="tab"
-          aria-controls="panel2"
-          aria-selected={state.tab === 'panel2'}
+          aria-controls="2"
+          aria-selected={state.tabNumber === '2'}
           onClick={handleClick}
         >
           B画面
@@ -42,21 +42,24 @@ export default function App(props) {
 
         <button
           role="tab"
-          aria-controls="panel3"
-          aria-selected={state.tab === 'panel3'}
+          aria-controls="3"
+          aria-selected={state.tabNumber === '3'}
           onClick={handleClick}
         >
           C画面
         </button>
-        <a href="">ヘルプ</a>
+        // 別タブで開く
+        <a href="" target="_blank" rel="noopener noreferrer">
+          ヘルプ
+        </a>
       </ul>
-      <div role="tabpanel" id="panel1" aria-hidden={state.tab !== 'panel1'}>
+      <div role="tabpanel" id="1" aria-hidden={state.tabNumber !== '1'}>
         A画面の内容
       </div>
-      <div role="tabpanel" id="panel2" aria-hidden={state.tab !== 'panel2'}>
+      <div role="tabpanel" id="2" aria-hidden={state.tabNumber !== '2'}>
         B画面の内容
       </div>
-      <div role="tabpanel" id="panel3" aria-hidden={state.tab !== 'panel3'}>
+      <div role="tabpanel" id="3" aria-hidden={state.tabNumber !== '3'}>
         C画面の内容
       </div>
     </div>
