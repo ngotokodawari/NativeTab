@@ -22,3 +22,6 @@ p {
 .box-containar .box {
   float: left; /*左に回り込み*/
 }
+.box-containar .box .box-right {
+  align-self: right; /*右寄せ*/
+}
