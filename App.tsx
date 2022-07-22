@@ -6,6 +6,7 @@ import './style.css';
 export default function App(props) {
   // クリックしたタブのIDを保持する
   const [state, setState] = useState({ tabNumber: '0' }); // デフォルト値
+
   // クリックしたときのイベントハンドラーです。
   const handleClick = (event) => {
     // イベント発生源の要素を取得
@@ -18,7 +19,17 @@ export default function App(props) {
     setState({
       tabNumber: tabState,
     });
+    // イベントを発火
+    if (state.tabNumber === '1') onTab1Event;
+    else if (state.tabNumber === '2') onTab2Event;
+    else if (state.tabNumber === '3') onTab3Event;
   };
+// イベントハンドラ
+  const onTab1Event = (event) => {};
+  const onTab2Event = (event) => {};
+  const onTab3Event = (event) => {};
+  const onHelpEvent = (event) => {};
+
   return (
     <div>
       <ul role="tablist">
@@ -48,8 +59,15 @@ export default function App(props) {
         >
           C画面
         </button>
-        // 別タブで開く
-        <a href="" target="_blank" rel="noopener noreferrer">
+
+        <a
+          href=""
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={onHelpEvent}
+        >
+          {' '}
+          {/* 別タブで開く */}
           ヘルプ
         </a>
       </ul>
