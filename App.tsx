@@ -1,9 +1,11 @@
 import * as React from 'react';
 import { useState } from 'react';
 import './style.css';
-
+import { useContext } from 'react';
+import { UserVisible } from './index';
 // 参考URL　https://ics.media/entry/17109/
-export default function App(props) {
+export default function App() {
+  const isVisible = useContext(UserVisible); // 表示・非表示フラグ
   // クリックしたタブのIDを保持する
   const [state, setState] = useState({ tabNumber: '1' }); // デフォルト値
 
