@@ -15,3 +15,7 @@ p {
   background-color: white;
   color: black;
 }
+[aria-selected="false"] {
+  background-color: black;
+  color: white;
+}

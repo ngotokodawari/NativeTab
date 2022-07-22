@@ -2,12 +2,10 @@ import * as React from 'react';
 import { useState, useCallback } from 'react';
 import './style.css';
 
-
+// 参考URL　https://ics.media/entry/17109/
 export default function App(props) {
   // クリックしたタブのIDを保持する
-  const [state, setState] = useState({
-    tab: 'panel1',
-  });
+  const [state, setState] = useState({ tab: 'panel1' }); // デフォルト値
   // クリックしたときのイベントハンドラーです。
   const handleClick = (event) => {
     // イベント発生源の要素を取得
@@ -22,48 +20,45 @@ export default function App(props) {
     });
   };
   return (
-
     <div>
       <ul role="tablist">
+        <button
+          role="tab"
+          aria-controls="panel1"
+          aria-selected={state.tab === 'panel1'}
+          onClick={handleClick}
+        >
+          A画面
+        </button>
 
-          <button
-            role="tab"
-            aria-controls="panel1"
-            aria-selected={state.tab === 'panel1'}
-            onClick={handleClick}
-          >
-            カベルネ・ソーヴィニョン
-          </button>
+        <button
+          role="tab"
+          aria-controls="panel2"
+          aria-selected={state.tab === 'panel2'}
+          onClick={handleClick}
+        >
+          B画面
+        </button>
 
-          <button
-            role="tab"
-            aria-controls="panel2"
-            aria-selected={state.tab === 'panel2'}
-            onClick={handleClick}
-          >
-            メルロー
-          </button>
-
-          <button
-            role="tab"
-            aria-controls="panel3"
-            aria-selected={state.tab === 'panel3'}
-            onClick={handleClick}
-          >
-            ピノ・ノワール
-          </button>
-
+        <button
+          role="tab"
+          aria-controls="panel3"
+          aria-selected={state.tab === 'panel3'}
+          onClick={handleClick}
+        >
+          C画面
+        </button>
+        <a href="">ヘルプ</a>
       </ul>
       <div role="tabpanel" id="panel1" aria-hidden={state.tab !== 'panel1'}>
-        カベルネ・ソーヴィニョンはブドウの一品種。赤ワインの中でも渋くて重い味わいが特徴です。
+        A画面の内容
       </div>
       <div role="tabpanel" id="panel2" aria-hidden={state.tab !== 'panel2'}>
-        メルローはブドウの一品種。味はカベルネ・ソーヴィニョンほど酸味やタンニンは強くなく、芳醇でまろやかで繊細な味わいです。
+        B画面の内容
       </div>
       <div role="tabpanel" id="panel3" aria-hidden={state.tab !== 'panel3'}>
-        ピノ・ノワールはブドウの一品種。カベルネ・ソーヴィニョンと対照的で比較的軽口な味わいです。
+        C画面の内容
       </div>
     </div>
   );
 }
-
