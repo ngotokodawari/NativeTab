@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { useState, useCallback } from 'react';
+import { useState } from 'react';
 import './style.css';
 
 // 参考URL　https://ics.media/entry/17109/
 export default function App(props) {
   // クリックしたタブのIDを保持する
-  const [state, setState] = useState({ tabNumber: '0' }); // デフォルト値
+  const [state, setState] = useState({ tabNumber: '1' }); // デフォルト値
 
   // クリックしたときのイベントハンドラーです。
   const handleClick = (event) => {
@@ -20,11 +20,16 @@ export default function App(props) {
       tabNumber: tabState,
     });
     // イベントを発火
-    if (state.tabNumber === '1') onTab1Event;
-    else if (state.tabNumber === '2') onTab2Event;
-    else if (state.tabNumber === '3') onTab3Event;
+    switch (state.tabNumber) {
+      case '1':
+        onTab1Event;
+      case '2':
+        onTab2Event;
+      case '3':
+        onTab3Event;
+    }
   };
-// イベントハンドラ
+  // イベントハンドラ
   const onTab1Event = (event) => {};
   const onTab2Event = (event) => {};
   const onTab3Event = (event) => {};
