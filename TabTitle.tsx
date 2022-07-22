@@ -17,9 +17,15 @@ const TabTitle: React.FC<Props> = ({
     setSelectedTab(index);
   }, [setSelectedTab, index]);
   const [active, setActive] = useState(false); // デフォルト値＝false
+
   const classToggle = () => {
-    setActive(!active); // タブをクリックするたびに活性、非活性を切り替える
+    /* タブをクリック時のイベント */
+    //setActive(!active); // タブをクリックするたびに活性、非活性を切り替える
+    setActive(true);
   };
+  //  1.親に自分がクリックされたことを通知する
+  //　2.親から子の関数を呼び、他の子タブをnegativeにする
+
   if (visible)
     return (
       <button

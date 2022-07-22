@@ -7,9 +7,9 @@ export default function App(props) {
   return (
     <div className="box-containar">
       <Tabs>
-        <Tab title="初期画面" visible="true" onclick={handleSubmit}></Tab>
-        <Tab title="その他" visible="true" onclick={handleSubmit}></Tab>
-        <Tab title="非表示" visible="false" onclick={handleSubmit}></Tab>
+        <Tab title="初期画面" index="0" visible="true" onclick={handleSubmit}></Tab>
+        <Tab title="その他" index="1" visible="true" onclick={handleSubmit}></Tab>
+        <Tab title="非表示" index="2" visible="false" onclick={handleSubmit}></Tab>
       </Tabs>
       <div className="box-right" style={{ alignSelf: 'flex-end' }}>
         <a href="https://www.yahoo.co.jp/" target="_blank" rel="noopener">
