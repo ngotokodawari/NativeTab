@@ -40,32 +40,9 @@ export default function App() {
   return (
     <div>
       <ul role="tablist">
-        <button
-          role="tab"
-          aria-controls="1"
-          aria-selected={state.tabNumber === '1'}
-          onClick={handleClick}
-        >
-          A画面
-        </button>
-
-        <button
-          role="tab"
-          aria-controls="2"
-          aria-selected={state.tabNumber === '2'}
-          onClick={handleClick}
-        >
-          B画面
-        </button>
-
-        <button
-          role="tab"
-          aria-controls="3"
-          aria-selected={state.tabNumber === '3'}
-          onClick={handleClick}
-        >
-          C画面
-        </button>
+        {OneTab(state, handleClick, '1', 'A画面')}
+        {OneTab(state, handleClick, '2', 'B画面')}
+        {OneTab(state, handleClick, '3', 'C画面')}
 
         <a
           href=""
@@ -78,6 +55,7 @@ export default function App() {
           ヘルプ
         </a>
       </ul>
+      <p>Context Value = {isVisible}</p>
       <div role="tabpanel" id="1" aria-hidden={state.tabNumber !== '1'}>
         A画面の内容
       </div>
@@ -88,5 +66,17 @@ export default function App() {
         C画面の内容
       </div>
     </div>
+  );
+}
+function OneTab(state, handle, value, title) {
+  return (
+    <button
+      role="tab"
+      aria-controls={value}
+      aria-selected={state.tabNumber === value}
+      onClick={handle}
+    >
+      {title}
+    </button>
   );
 }
