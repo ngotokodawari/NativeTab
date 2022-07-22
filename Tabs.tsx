@@ -9,7 +9,7 @@ const Tabs: React.FC<Props> = ({ children }) => {
   const [selectedTab, setSelectedTab] = useState(0);
 
   return (
-    <div>
+    <div className="box">
       {children.map((item, index, visible) => (
         <TabTitle
           key={index}
@@ -22,6 +22,7 @@ const Tabs: React.FC<Props> = ({ children }) => {
 
       {children[selectedTab]}
     </div>
+    //※基本的にdivタグで囲んだ次の要素は改行されるため、横並びにはCSSの適用が必要となります
   );
 };
 

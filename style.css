@@ -16,3 +16,9 @@ p {
   border-radius: 0.4rem;
   cursor: pointer;
 }
+.box-containar {
+  overflow: hidden; /*回り込み解除（floatを使った次の要素のレイアウトが崩れるため）*/
+}
+.box-containar .box {
+  float: left; /*左に回り込み*/
+}
