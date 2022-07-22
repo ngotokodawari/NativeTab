@@ -2,26 +2,16 @@ h1,
 p {
   font-family: Lato;
 }
-.negativeTab {
-  background-color: rgb(0, 0, 0);
-  color: white;
-  padding: 0.8rem;
-  border-radius: 0.4rem;
-  cursor: pointer;
+
+[aria-hidden="true"] {
+  display: none;
 }
-.positiveTab {
-  background-color: rgb(255, 255, 255);
+
+[aria-hidden="false"] {
+  display: block;
+}
+
+[aria-selected="true"] {
+  background-color: white;
   color: black;
-  padding: 0.8rem;
-  border-radius: 0.4rem;
-  cursor: pointer;
-}
-.box-containar {
-  overflow: hidden; /*回り込み解除（floatを使った次の要素のレイアウトが崩れるため）*/
-}
-.box-containar .box {
-  float: left; /*左に回り込み*/
-}
-.box-containar .box .box-right {
-  align-self: right; /*右寄せ*/
 }
