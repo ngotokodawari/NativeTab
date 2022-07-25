@@ -40,9 +40,9 @@ export default function App() {
   return (
     <div>
       <ul role="tablist">
-        {OneTab(state, handleClick, true, 1, 'A画面')}
-        {OneTab(state, handleClick, true, 2, 'B画面')}
-        {OneTab(state, handleClick, false, 3, 'C画面')}
+        {OneTab(state, handleClick, true, '1', 'A画面')}
+        {OneTab(state, handleClick, true, '2', 'B画面')}
+        {OneTab(state, handleClick, false, '3', 'C画面')}
         {HelpLink(onHelpEvent)}
       </ul>
       <p>Context Value = {isVisible}</p>
@@ -58,7 +58,7 @@ export default function App() {
     </div>
   );
 }
-function OneTab(state, handle, visible: boolean, value: number, title) {
+function OneTab(state, handle, visible: boolean, value, title) {
   return (
     // visibilityプロパティを使う理由：非表示でも周辺の表示には影響しないため
     <button
