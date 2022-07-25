@@ -40,20 +40,10 @@ export default function App() {
   return (
     <div>
       <ul role="tablist">
-        {OneTab(state, handleClick, '1', 'A画面')}
-        {OneTab(state, handleClick, '2', 'B画面')}
-        {OneTab(state, handleClick, '3', 'C画面')}
-
-        <a
-          href=""
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={onHelpEvent}
-        >
-          {' '}
-          {/* 別タブで開く */}
-          ヘルプ
-        </a>
+        {OneTab(state, handleClick, true, 1, 'A画面')}
+        {OneTab(state, handleClick, true, 2, 'B画面')}
+        {OneTab(state, handleClick, false, 3, 'C画面')}
+        {HelpLink(onHelpEvent)}
       </ul>
       <p>Context Value = {isVisible}</p>
       <div role="tabpanel" id="1" aria-hidden={state.tabNumber !== '1'}>
@@ -68,15 +58,31 @@ export default function App() {
     </div>
   );
 }
-function OneTab(state, handle, value, title) {
+function OneTab(state, handle, visible: boolean, value: number, title) {
   return (
+    // visibilityプロパティを使う理由：非表示でも周辺の表示には影響しないため
     <button
       role="tab"
-      aria-controls={value}
+      aria-controls={value.toString()}
       aria-selected={state.tabNumber === value}
       onClick={handle}
+      style={{ visibility: visible ? 'visible' : 'hidden' }}
     >
       {title}
     </button>
+  );
+}
+function HelpLink(onHelpEvent) {
+  return (
+    <a
+      href="https://news.yahoo.co.jp/"
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={onHelpEvent}
+    >
+      {' '}
+      {/* 別タブで開く */}
+      ヘルプ
+    </a>
   );
 }
