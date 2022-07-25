@@ -42,10 +42,10 @@ export default function App() {
       <ul role="tablist">
         {OneTab(state, handleClick, true, '1', 'A画面')}
         {OneTab(state, handleClick, true, '2', 'B画面')}
-        {OneTab(state, handleClick, false, '3', 'C画面')}
+        {OneTab(state, handleClick, isVisible, '3', 'C画面')}
         {HelpLink(onHelpEvent)}
       </ul>
-      <p>Context Value = {isVisible}</p>
+      <p>Context Value = {isVisible.toString()}</p>
       <div role="tabpanel" id="1" aria-hidden={state.tabNumber !== '1'}>
         A画面の内容
       </div>
